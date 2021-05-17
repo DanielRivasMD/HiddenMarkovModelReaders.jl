@@ -1,6 +1,8 @@
 module HiddenMarkovModelReaders
 
-# Write your package code here.
 using StructArrays
 
+export setup
+
+include("setup.jl")
 end
