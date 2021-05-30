@@ -1,7 +1,7 @@
 ################################################################################
 
 ""
-function backTrace(self::HMM)
+function backTrace!(self::HMM)
   state = 0
   min = self.tbM[1][end]
 

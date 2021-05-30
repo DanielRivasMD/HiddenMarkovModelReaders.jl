@@ -18,18 +18,18 @@ end;
 
 Process Hidden Markov Model
 """
-function process(self::HMM, d::Array{Float64, 2}, pen::Float64, splitSw::Bool)
+function process!(self::HMM, d::Array{Float64, 2}, pen::Float64, splitSw::Bool)
 
   # reset
   reset!(self)
 
   # feed frame
   for ix in axes(d, 1)
-    feed(self, ix, d, pen)
+    feed!(self, ix, d, pen)
   end
 
   # backtrace
-  tb = backTrace(self)
+  tb = backTrace!(self)
 
   divider = fill(1, size(self.dataM, 1))
   orig = deepcopy(self.dataM)

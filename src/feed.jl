@@ -1,7 +1,7 @@
 ################################################################################
 
 ""
-function feed(self::HMM, frame::Int64, d::Array{Float64, 2}, pen::Float64)
+function feed!(self::HMM, frame::Int64, d::Array{Float64, 2}, pen::Float64)
   for ix in eachindex(self.tbM)
     plus = distance(self, ix, d[frame, :])
     for jx in eachindex(self.tbM)
