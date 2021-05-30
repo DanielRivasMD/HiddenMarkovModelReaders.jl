@@ -1,17 +1,5 @@
 ################################################################################
 
-begin
-  include("struct.jl")
-
-  include("reset.jl")
-  include("feed.jl")
-  include("backTrace.jl")
-  include("distance.jl")
-  include("sort.jl")
-end;
-
-################################################################################
-
 """
     process(self::HMM, d::Array{Float64, 2}, pen::Float64, splitSw::Bool)
 
