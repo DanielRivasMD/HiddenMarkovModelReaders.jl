@@ -1,12 +1,12 @@
 ################################################################################
 
 """
-    setup(v::Array{Float64, 2};
-    penalty = 200.)
+    setup(v::Array{T, 2};
+    penalty = 200.) where <: Number
 
-Initiate Hidden Markov Model
+Initiate hidden Markov model object
 """
-function setup!(v::Array{Float64, 2}; penalty = 200.)
+function setup!(v::Array{T, 2}; penalty = 200.) where <: Number
   # mPen = 200.
   noIter = 1
   hmm = HMM([zeros(size(v, 2)) for i in 1:noIter], [zeros(size(v, 1) + 1) for i in 1:noIter])

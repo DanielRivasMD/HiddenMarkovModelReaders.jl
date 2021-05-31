@@ -1,7 +1,7 @@
 ################################################################################
 
-"Euclidean distance"
-function distance(self::HMM, j::Int64, h::Array{Float64, 1})
+"Euclidean distance on hidden Markov model object"
+function distance(self::HMM, j::T, h::Array{T, 1}) where T <: Number
   dis = 0.
   for ix in eachindex(self.dataM[j])
     dis += (self.dataM[j][ix] - h[ix]) ^ 2
@@ -10,12 +10,13 @@ function distance(self::HMM, j::Int64, h::Array{Float64, 1})
   return dis
 end
 
+"Euclidean distance"
 function distance(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
   return (arr .- h) .^ 2  |> sum  |> sqrt
 end
 
 "Bhattacharyya distance"
-function bhattDist(arr::Array{Float64, 1}, h::Array{Float64, 1})
+function bhattDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
   dis = 0.
   for ix in eachindex(arr)
     product = arr[ix] * h[ix]
@@ -30,7 +31,7 @@ function bhattDist(arr::Array{Float64, 1}, h::Array{Float64, 1})
 end
 
 "Amplitude"
-function amplitude(arr::Array{Float64, 1})
+function amplitude(arr::Array{T, 1}) where T <: Number
   return arr .^ 2 |> sum |> sqrt
 end
 
