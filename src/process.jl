@@ -6,15 +6,14 @@
 
 Process hidden Markov model object
 """
-function process!(self::HMM, d::Array{T, 2}, pen::T, splitSw::Bool) where T <: Number
+function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args) where T <: Number
 
-  # TODO: pass distance function as parameter
   # reset
   reset!(self)
 
   # feed frame
   for ix in axes(d, 1)
-    feed!(self, ix, d, pen)
+    feed!(self, ix, d, args.pen)
   end
 
   # backtrace
@@ -31,8 +30,7 @@ function process!(self::HMM, d::Array{T, 2}, pen::T, splitSw::Bool) where T <: N
   for ix in axes(d, 1)
     self.dataM[tb[ix]] .+= d[ix, :]
     divider[tb[ix]] += 1
-    # pair = ScorePair(bhattDist(orig[tb[ix]], d[ix, :]), ix) # use Bhattacharyya distance
-    pair = ScorePair(distance(orig[tb[ix]], d[ix, :]), ix) # use Euclidean distance
+    pair = ScorePair(args.distance(orig[tb[ix]], d[ix, :]), ix)
 
     mdist[tb[ix]] += pair.score
     mcount[tb[ix]] += 1
