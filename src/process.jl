@@ -1,10 +1,19 @@
 ################################################################################
 
 """
-    process(self::HMM, d::Array{T, 2}, pen::T, splitSw::Bool) where T <: Number
+    process(self::HMM, d::Array{T, 2}, splitSw::Bool;
+    args) where T <: Number
 
-
+# Description
 Process hidden Markov model object
+
+# Examples
+```julia-repl
+julia>
+
+```
+
+See also: [`setup!`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
 function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args) where T <: Number
 

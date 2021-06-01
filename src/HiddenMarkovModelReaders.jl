@@ -10,9 +10,9 @@ using Parameters
 
 ################################################################################
 
-# exports
-export setup!
-export process!
+# hidden Markov model functions
+export setup!, process!
+
 # hidden Markov model object & parameters
 export HMM, HMMParams
 
