@@ -8,17 +8,7 @@ end
 
 "Bhattacharyya distance"
 function bhattDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
-  dis = 0.
-  for ix in eachindex(arr)
-    product = arr[ix] * h[ix]
-    if product >= 0
-      dis += sqrt(product)
-    else
-      @error("Product $product is less than zero")
-    end
-  end
-  dis = -log(dis + 1.)
-  return dis
+  return -log((arr .* h .|> sqrt |> sum) + 1)
 end
 
 "Amplitude"
