@@ -1,14 +1,5 @@
 ################################################################################
 
-"Euclidean distance on hidden Markov model object"
-function distance(self::HMM, j::T, h::Array{T, 1}) where T <: Number
-  dis = 0.
-  for ix in eachindex(self.dataM[j])
-    dis += (self.dataM[j][ix] - h[ix]) ^ 2
-  end
-  dis = sqrt(dis)
-  return dis
-end
 
 "Euclidean distance"
 function distance(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
