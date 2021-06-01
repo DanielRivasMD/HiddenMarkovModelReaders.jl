@@ -7,7 +7,7 @@ Keep track of scores & indexes
     score::Float64: score
     index::Int64: index
 
-See also: [`HMM`](@ref)
+See also: [`HMM`](@ref), [`HMMParams`](@ref)
 """
 struct ScorePair
   score::Float64
@@ -21,13 +21,22 @@ Hidden Markov model object
     dataM::Array: hold data
     tbM::Array: collect traceback
 
-See also: [`ScorePair`](@ref)
+See also: [`HMMParams`](@ref), [`setup!`](@ref),
 """
 mutable struct HMM
   dataM::Array
   tbM::Array
 end
 
+"""
+Hidden Markov model parameters
+
+# Fields
+    pen::Float64: penalty for hidden Markov model
+    distance::Function: function used to calculate distance
+
+See also: [`HMM`](@ref), [`setup!`](@ref),
+"""
 @with_kw struct HMMParams
   pen::Float64                 = 200.      # penalty
   distance::Function           = distance  # distance function

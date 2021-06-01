@@ -13,6 +13,9 @@ using Parameters
 # exports
 export setup!
 export process!
+# hidden Markov model object & parameters
+export HMM, HMMParams
+
 # distance functions
 export euclDist, bhattDist
 
