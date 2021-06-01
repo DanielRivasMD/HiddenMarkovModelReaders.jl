@@ -12,6 +12,8 @@ using StructArrays
 # exports
 export setup!
 export process!
+# distance functions
+export euclDist, bhattDist
 
 ################################################################################
 
