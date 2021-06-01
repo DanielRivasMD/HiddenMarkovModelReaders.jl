@@ -6,6 +6,7 @@ module HiddenMarkovModelReaders
 
 # dependencies
 using StructArrays
+using Parameters
 
 ################################################################################
 

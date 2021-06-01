@@ -28,4 +28,9 @@ mutable struct HMM
   tbM::Array
 end
 
+@with_kw struct HMMParams
+  pen::Float64                 = 200.      # penalty
+  distance::Function           = distance  # distance function
+end
+
 ################################################################################
