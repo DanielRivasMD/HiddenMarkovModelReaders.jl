@@ -2,7 +2,7 @@
 
 """
     process(self::HMM, d::Array{T, 2}, splitSw::Bool;
-    args) where T <: Number
+    args::HMMParams) where T <: Number
 
 # Description
 Process hidden Markov model object
@@ -15,7 +15,7 @@ julia>
 
 See also: [`setup!`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
-function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args) where T <: Number
+function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args::HMMParams) where T <: Number
 
   # reset
   reset!(self)
