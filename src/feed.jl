@@ -3,7 +3,7 @@
 "Feed on hidden Markov model object"
 function feed!(self::HMM, frame::Int64, d::Array{Float64, 2}; args::HMMParams)
   for ix in eachindex(self.tbM)
-    plus = distance(self, ix, d[frame, :])
+    plus = euclDist(self.dataM[ix], d[frame, :])
     for jx in eachindex(self.tbM)
       lpen = copy(args.pen)
       if (jx == ix) lpen = 0 end
