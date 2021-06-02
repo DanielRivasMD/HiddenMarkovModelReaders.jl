@@ -8,7 +8,7 @@ function sortHMM!(self::HMM)
   ampIxVc = map(sortedAmpVc) do y
    findall(x -> x == y, ampVc)
   end
-  templ = Array{Array{T, 1}, 1}() where T <: Number
+  templ = Array{Array{T, 1} where T <: Number, 1}()
 
   for i in ampIxVc
     push!(templ, self.dataM[i[1]])
