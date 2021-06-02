@@ -22,7 +22,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args) where T <: Num
 
   # feed frame
   for ix in axes(d, 1)
-    feed!(self, ix, d, args.pen)
+    feed!(self, ix, d, args = args)
   end
 
   # backtrace
