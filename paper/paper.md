@@ -22,7 +22,7 @@ bibliography: paper.bib
 
 Data and signal processing is a demanding task that calls for novel and efficient methodology. 
 
-Unsupervised hypothesis generation and learning from data directly offers tremendous value due to its scalability nature. Furthermore, unlike for supervised learning, no labeled data is required.
+Unsupervised hypothesis generation and learning from data directly offers a tremendous value due to its scalability nature. Furthermore, unlike for supervised learning, no labeled data is required.
 
 
 
