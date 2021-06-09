@@ -41,16 +41,22 @@ Hidden Markov Models (HMMs) were invented in the 1960's for solving the problem 
 
 Here, we present a framework written in Julia for easy-to-use, yet efficient experimentation. Julia's general user friendliness makes this software available to people a wide range of programming expertise. At the same time, the JIT LLVM compiler ensures that applications scale gracefully with larger amounts of data. Given efficient libraries of machine learning and artificial intelligence algorithms in Julia, HiddenReaders is yet another contribution to the growing set of automation algorithms and implementations. 
 
+# Description
 
-# Citations
-1. Baum, L. E.; Petrie, T. (1966). "Statistical Inference for Probabilistic Functions of Finite State Markov Chains". The Annals of Mathematical Statistics. 37 (6): 1554–1563. 
 
-2. Reynolds D. (2009) Gaussian Mixture Models. In: Li S.Z., Jain A. (eds) Encyclopedia of Biometrics. Springer, Boston, MA. https://doi.org/10.1007/978-0-387-73003-5_196
 
-3. Zamani N, Sundström G, Meadows JR, Höppner MP, Dainat J, Lantz H, Haas BJ, Grabherr MG. A universal genomic coordinate translator for comparative genomics. BMC Bioinformatics. 2014 Jun 30; 15:227. 
+# Software Repository
+
+The software is available as source code from https://github.com/DanielRivasMD/HiddenMarkovModelReaders/ under the MIT license.
 
 # Acknowledgements
 
 
 # References
+
+1. Baum, L. E.; Petrie, T. (1966). "Statistical Inference for Probabilistic Functions of Finite State Markov Chains". The Annals of Mathematical Statistics. 37 (6): 1554–1563. 
+
+2. Reynolds D. (2009) Gaussian Mixture Models. In: Li S.Z., Jain A. (eds) Encyclopedia of Biometrics. Springer, Boston, MA. https://doi.org/10.1007/978-0-387-73003-5_196
+
+3. Zamani N, Sundström G, Meadows JR, Höppner MP, Dainat J, Lantz H, Haas BJ, Grabherr MG. A universal genomic coordinate translator for comparative genomics. BMC Bioinformatics. 2014 Jun 30; 15:227. 
 
