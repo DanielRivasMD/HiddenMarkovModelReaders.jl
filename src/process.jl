@@ -2,7 +2,7 @@
 
 """
     process(self::HMM, d::Array{T, 2}, splitSw::Bool;
-    args::HMMParams) where T <: Number
+    params::HMMParams) where T <: Number
 
 # Description
 Process hidden Markov model object
@@ -15,14 +15,14 @@ julia>
 
 See also: [`setup!`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
-function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args::HMMParams) where T <: Number
+function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) where T <: Number
 
   # reset
   reset!(self)
 
   # feed frame
   for ix in axes(d, 1)
-    feed!(self, ix, d, args = args)
+    feed!(self, ix, d, params = params)
   end
 
   # backtrace
@@ -39,7 +39,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; args::HMMParams) whe
   for ix in axes(d, 1)
     self.dataM[tb[ix]] .+= d[ix, :]
     divider[tb[ix]] += 1
-    pair = ScorePair(args.distance(orig[tb[ix]], d[ix, :]), ix)
+    pair = ScorePair(params.distance(orig[tb[ix]], d[ix, :]), ix)
 
     mdist[tb[ix]] += pair.score
     mcount[tb[ix]] += 1

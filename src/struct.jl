@@ -33,9 +33,9 @@ Hidden Markov model parameters
 
 # Fields
     pen::Float64: penalty for hidden Markov model
-    distance::Function: function used to calculate distance
+    distance::Function: function used to calculate distance. Possible options inlcude: `euclDist`, `bhattDist`.
 
-See also: [`HMM`](@ref), [`setup!`](@ref),
+See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """
 @with_kw struct HMMParams
   pen::Float64                 = 200.      # penalty
