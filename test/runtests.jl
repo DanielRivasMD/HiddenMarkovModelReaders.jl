@@ -2,6 +2,7 @@
 
 using HiddenMarkovModelReaders
 using Test
+using DelimitedFiles
 
 ################################################################################
 
