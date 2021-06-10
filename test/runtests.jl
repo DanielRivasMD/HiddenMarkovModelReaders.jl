@@ -14,7 +14,7 @@ tests = [
 
 ################################################################################
 
-@testset "HiddenMarkovModelReaders.jl" begin
+@testset verbose = true "Hidden Markov Model Readers" begin
 
   for tst ∈ tests
     include(tst)
