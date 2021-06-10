@@ -1,11 +1,17 @@
 ################################################################################
 
-@testset "Setup Hidden Markov Model" begin
-  using DelimitedFiles
-  f = readdlm("data/signal.tsv")
+@testset "Setup" begin
 
-  @test setup(f) == (200., )
+  # read file
+  include("readfile.jl")
+
+  # setup hidden Markov model
+  hmm = setup!(v)
+
+  @test hmm.dataM == [zeros(size(v, 2))]
+  @test hmm.tbM == [[0.0; repeat([-1.0], size(v, 1))]]
 
 end
+
 
 ################################################################################
