@@ -53,10 +53,3 @@ The software is available as source code from https://github.com/DanielRivasMD/H
 
 
 # References
-
-1. Baum, L. E.; Petrie, T. (1966). "Statistical Inference for Probabilistic Functions of Finite State Markov Chains". The Annals of Mathematical Statistics. 37 (6): 1554–1563. 
-
-2. Reynolds D. (2009) Gaussian Mixture Models. In: Li S.Z., Jain A. (eds) Encyclopedia of Biometrics. Springer, Boston, MA. https://doi.org/10.1007/978-0-387-73003-5_196
-
-3. Zamani N, Sundström G, Meadows JR, Höppner MP, Dainat J, Lantz H, Haas BJ, Grabherr MG. A universal genomic coordinate translator for comparative genomics. BMC Bioinformatics. 2014 Jun 30; 15:227. 
-
