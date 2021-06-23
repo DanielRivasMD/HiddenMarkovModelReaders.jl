@@ -28,7 +28,7 @@ HiddenMarkovModelReaders, a Julia implementation of a Hidden Markov model combin
 
 # Statement of need
 
-We selected Julia as the language for implementation, both due to Julia's just-in-time (JIT) LLVM compiler (REF) and efficient artificial intelligence libraries, e.g., Flux [@RN1], as well as due to Julia's user friendliness. As such, HiddenMarkovModelReaders can be easily incorporated into any data processing pipelines.
+We selected Julia as the language for implementation, both due to Julia's just-in-time (JIT) LLVM compiler and efficient artificial intelligence libraries, e.g., Flux [@RN1], as well as due to Julia's user friendliness. As such, HiddenMarkovModelReaders can be easily incorporated into any data processing pipelines.
 
 Hidden Markov Models (HMMs) were invented in the 1960's for solving the problem of back-tracing the inner mechanisms of processes that could not be observed directly [@RN3]. In combination with Gaussian Mixture Models [@RN4], HMMs later became the backbone of signal processing tasks such as automated speech recognition. While HMMs have mostly been used for solving problems in which supervised or semi-supervised training was possible, there were also algorithms that combined HMMs with neural networks to learn in a completely unsupervised manner, e.g. Saguaro [@RN2].
 
