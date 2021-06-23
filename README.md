@@ -1,6 +1,7 @@
 # HiddenMarkovModelReaders
 
 <!--[![Latest Release](https://img.shields.io/github/release/DanielRivasMD/HiddenMarkovModelReaders.jl.svg)]-->
+
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/stable)
@@ -27,12 +28,44 @@ julia> using HiddenMarkovModelReaders
 
 For more information, see the [Pkg documentation](https://docs.julialang.org/en/v1/stdlib/Pkg/).
 
+## Usage
+
+Using `Parameters.jl` and `HMMParams` struct the user can control all of the parameters of the model in a user friendly way.
+
+```julia
+# Hidden Markov model parameters
+hmmParams = HMMParams(
+  pen = 200.,
+  distance = euclDist,
+)
+```
+
+Initialize a Hidden Markov model object with `setup!` function.
+
+```julia
+# declare random two-dimensional array
+x = rand(10, 5)
+
+# setup Hidden Markov model object
+hmm = setup!(x)
+```
+
+Control the training using `process!` function.
+
+```julia
+# create a dictionary to hold results
+resultsDc = Dict()
+
+# procces Hidden Markov model with state splitting option
+resultsDc[1] = process!(hmm, x, true, params = hmmParams)
+
+# procces Hidden Markov model without state splitting option
+resultsDc[2] = process!(hmm, x, false, params = hmmParams)
+```
+
 ## Citations
 
 If you use HiddenMarkovModelReaders or derivates in your work, please consider citing the code record.
-
-## Usage
-
 
 ## Contributing and Support
 
