@@ -11,7 +11,7 @@ using Parameters
 ################################################################################
 
 # hidden Markov model functions
-export setup!, process!
+export setup, process!
 
 # hidden Markov model object & parameters
 export HMM, HMMParams
