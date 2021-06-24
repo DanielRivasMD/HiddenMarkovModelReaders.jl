@@ -37,6 +37,7 @@ Using `Parameters.jl` and `HMMParams` struct the user can control all of the par
 hmmParams = HMMParams(
   pen = 200.,
   distance = euclDist,
+  minimumFrequency           = 20
 )
 ```
 

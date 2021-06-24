@@ -40,6 +40,7 @@ See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@re
 @with_kw struct HMMParams
   pen::Float64                 = 200.      # penalty
   distance::Function           = distance  # distance function
+  minimumFrequency::Int64    = 20        # minimum frequency for state split
 end
 
 ################################################################################

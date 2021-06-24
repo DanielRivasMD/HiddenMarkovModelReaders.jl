@@ -63,10 +63,9 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   max = 0.
   toSplit = 1
-  minFreq = 20 # hard coded!
 
   for ix in eachindex(mdist)
-    if mcount[ix] > minFreq
+    if mcount[ix] > params.minimumFrequency
       avdist = mdist[ix] / mcount[ix]
       if avdist > max
         max = avdist
