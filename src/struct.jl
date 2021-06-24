@@ -38,9 +38,10 @@ Hidden Markov model parameters
 See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """
 @with_kw struct HMMParams
-  pen::Float64                 = 200.      # penalty
-  distance::Function           = distance  # distance function
+  penalty::Float64           = 200.      # model penalty
+  distance::Function         = distance  # distance function
   minimumFrequency::Int64    = 20        # minimum frequency for state split
+  verbosity::Bool            = false     # verbosity level
 end
 
 ################################################################################

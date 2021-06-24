@@ -35,9 +35,10 @@ Using `Parameters.jl` and `HMMParams` struct the user can control all of the par
 ```julia
 # Hidden Markov model parameters
 hmmParams = HMMParams(
-  pen = 200.,
-  distance = euclDist,
+  penalty                    = 200,
+  distance                   = euclDist,
   minimumFrequency           = 20
+  verbosity                  = false,
 )
 ```
 
