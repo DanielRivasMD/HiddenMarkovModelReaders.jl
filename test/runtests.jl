@@ -7,10 +7,18 @@ using DelimitedFiles
 ################################################################################
 
 tests = [
-  "distance.jl",
-  "setup.jl",
-  "process.jl",
+
   "reset.jl",
+  "feed.jl",
+  "backTrace.jl",
+  "sort.jl",
+
+  "distance.jl",
+
+  "setup.jl",
+
+  "process.jl",
+
 ]
 
 ################################################################################
