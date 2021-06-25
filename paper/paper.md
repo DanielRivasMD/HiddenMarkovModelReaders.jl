@@ -36,16 +36,16 @@ Here, we present a framework written in Julia for easy-to-use, yet efficient exp
 
 # Description
 
-HiddenMarkovModelReaders offers APIs to declare settings: `HMMParams` struct, where `penalty` for the model, `distance` function to use and `verbosity` level can be defined; and to create and manipulate a Hidden Markov model: `HMM`, where `dataM` carries data and `tbM` holds traceback. Likewise, HiddenMarkovModelReaders provides two distance functions: `euclDist` and `bhattDist` for Euclidean and Bhattacharyya distances, respectively.
+HiddenMarkovModelReaders offers APIs to declare the basic settings: the `HMMParams` struct, where the tranistion `penalties` for the model, the `distance` function to use, and the `verbosity` level can be defined. Also, it allows for creating and manipulating the Hidden Markov model `HMM`, where `dataM` carries the data, and `tbM` receives the traceback. HiddenMarkovModelReaders provides two built-in distance functions `euclDist` and `bhattDist` for the Euclidean and Bhattacharyya distances, respectively. Additional user-provided distance functions are easily integrated through the API.
 
-HiddenMarkovModelReaders offers two functions: `setup` and `process!`. `setup` initializes an empty instance of `HMM` struct. `process!` is a mutating function that is meant to use in an iterative manner.
+HiddenMarkovModelReaders offers two main functions: `setup` and `process!`. `setup` initializes an empty instance of the `HMM` structure, while `process!` is a mutating function that is used in an iterative manner. Processing is done in the following manner, it:
 
-Next, it resets the traceback of the `HMM` struct.
-Next, it feeds new data into the model by calculating the Euclidean distance beetwen the incoming data and the model. If the next traceback frame is less than zero or the frame traceback in the model plus the Euclidean distance plus the model penalty are less than the next traceback frame then the next traceback frame is assigned to the traceback frame plus the Euclidean distance plus the model penalty. This signifies the transition in changing state.
-Next, sets the minimum traceback and calculates the state.
-Next, it updates the model by adding incoming data and calculating distance defined by the `distance` setting.
-Next, sorts the states of the `HMM`.
-Next, if split switch is passed as false, returns the traceback and data in the model. Otherwise, splits the states and returns the traceback and data in the model afterwards.
+- resets the traceback of the `HMM` struct.
+- feeds new data into the model by calculating the distance beetwen the incoming data and the model. If the next traceback frame is less than zero [???], or the frame traceback in the model plus the Euclidean distance plus the model penalty are less than the next traceback frame, then the next traceback frame is assigned to the traceback frame plus the distance plus the model penalty. This signifies the transition in changing state.
+ - sets the minimum traceback and calculates the state.
+- updates the model by adding incoming data and calculating distance defined by the `distance` setting.
+- sorts the states of the `HMM` by overall amplitude of its feature vectors.
+- returns the traceback and data in the model if the split switch is passed as false. Otherwise, it splits the states and returns the traceback and data in the model afterwards.
 
 # Software Repository
 
