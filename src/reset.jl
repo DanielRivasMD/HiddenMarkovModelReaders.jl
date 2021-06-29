@@ -2,7 +2,7 @@
 
 "Reset hidden Markov model object"
 function reset!(self::HMM)
-  self.tbM = [x .= [0; repeat(-1:-1, length(self.tbM[1]) - 1)] for x in self.tbM]
+  self.tb = [x .= [0; repeat(-1:-1, length(self.tb[1]) - 1)] for x = self.tb]
 end
 
 ################################################################################

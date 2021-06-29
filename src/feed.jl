@@ -2,13 +2,13 @@
 
 "Feed on hidden Markov model object"
 function feed!(self::HMM, frame::Int64, d::Array{Float64, 2}; params::HMMParams)
-  for ix in eachindex(self.tbM)
-    plus = euclDist(self.dataM[ix], d[frame, :])
-    for jx in eachindex(self.tbM)
+  for ι ∈ eachindex(self.tb)
+    plus = euclDist(self.data[ι], d[frame, :])
+    for ε ∈ eachindex(self.tb)
       lpen = copy(params.penalty)
-      if (jx == ix) lpen = 0 end
-      if self.tbM[jx][frame + 1] < 0. || self.tbM[ix][frame] + plus + lpen < self.tbM[jx][frame + 1]
-        self.tbM[jx][frame + 1] = self.tbM[ix][frame] + plus + lpen
+      if (ε == ι) lpen = 0 end
+      if self.tb[ε][frame + 1] < 0. || self.tb[ι][frame] + plus + lpen < self.tb[ε][frame + 1]
+        self.tb[ε][frame + 1] = self.tb[ι][frame] + plus + lpen
       end
     end
   end

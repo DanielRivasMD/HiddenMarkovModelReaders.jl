@@ -21,28 +21,28 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   reset!(self)
 
   # feed frame
-  for ix in axes(d, 1)
-    feed!(self, ix, d, params = params)
+  for ι ∈ axes(d, 1)
+    feed!(self, ι, d, params = params)
   end
 
   # backtrace
-  tb = backTrace(self)
+  τ = backTrace(self)
 
-  divider = fill(1, size(self.dataM, 1))
-  orig = deepcopy(self.dataM)
+  divider = fill(1, size(self.data, 1))
+  orig = deepcopy(self.data)
   pp = StructArrays.StructArray{ScorePair}(undef, 0)
 
   # update model
-  mdist = zeros(Float64, size(self.dataM))
-  mcount = zeros(Float64, size(self.dataM))
+  mdist = zeros(Float64, size(self.data))
+  mcount = zeros(Float64, size(self.data))
 
-  for ix in axes(d, 1)
-    self.dataM[tb[ix]] .+= d[ix, :]
-    divider[tb[ix]] += 1
-    pair = ScorePair(params.distance(orig[tb[ix]], d[ix, :]), ix)
+  for ι ∈ axes(d, 1)
+    self.data[τ[ι]] .+= d[ι, :]
+    divider[τ[ι]] += 1
+    pair = ScorePair(params.distance(orig[τ[ι]], d[ι, :]), ι)
 
-    mdist[tb[ix]] += pair.score
-    mcount[tb[ix]] += 1
+    mdist[τ[ι]] += pair.score
+    mcount[τ[ι]] += 1
 
     push!(pp, pair)
   end
@@ -51,15 +51,15 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   ixs = map(x -> findall(x .== pp.score), scores)
   pp = pp[vcat(ixs...)]
 
-  for ix in eachindex(self.dataM)
-    self.dataM[ix] /= divider[ix]
+  for ι ∈ eachindex(self.data)
+    self.data[ι] /= divider[ι]
   end
 
   if params.verbosity
-    for jx in eachindex(self.dataM)
-      @info "Print state $(jx)"
-      for ix in eachindex(self.dataM[jx])
-        println(round(self.dataM[jx][ix]; digits = 3))
+    for ε ∈ eachindex(self.data)
+      @info "Print state $(ε)"
+      for ι ∈ eachindex(self.data[ε])
+        println(round(self.data[ε][ι]; digits = 3))
       end
     end
   end
@@ -67,32 +67,32 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   sortHMM!(self)
 
   if !splitSw
-    return tb, self.dataM
+    return τ, self.data
   end
 
   max = 0.
   toSplit = 1
 
-  for ix in eachindex(mdist)
-    if mcount[ix] > params.minimumFrequency
-      avdist = mdist[ix] / mcount[ix]
+  for ι ∈ eachindex(mdist)
+    if mcount[ι] > params.minimumFrequency
+      avdist = mdist[ι] / mcount[ι]
       if avdist > max
         max = avdist
-        toSplit = ix
+        toSplit = ι
       end
     end
   end
 
   half = 1 + mcount[toSplit] / 4
 
-  extra = fill(0, size(self.dataM[1], 1))
+  extra = fill(0, size(self.data[1], 1))
 
   count = 1
-  for ix in eachindex(pp)
-    if tb[pp[ix].index] != toSplit
+  for ι ∈ eachindex(pp)
+    if τ[pp[ι].index] != toSplit
       continue
     end
-    extra += d[pp[ix].index, :]
+    extra += d[pp[ι].index, :]
     count += 1
     if count >= half
       break
@@ -101,11 +101,11 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   extra ./= (count - 1)
 
-  push!(self.dataM, extra)
+  push!(self.data, extra)
 
-  push!(self.tbM, fill(0, size(self.tbM[1], 1)))
+  push!(self.tb, fill(0, size(self.tb[1], 1)))
 
-  return tb, self.dataM
+  return τ, self.data
 
 end
 

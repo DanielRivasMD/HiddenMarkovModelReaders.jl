@@ -3,29 +3,29 @@
 "Backtrace on hidden Markov model object"
 function backTrace(self::HMM)
   state = 0
-  min = self.tbM[1][end]
+  min = self.tb[1][end]
 
-  for ix in eachindex(self.tbM)
-    if self.tbM[ix][end] <= min
-      state = ix
-      min = self.tbM[ix][end]
+  for ι ∈ eachindex(self.tb)
+    if self.tb[ι][end] <= min
+      state = ι
+      min = self.tb[ι][end]
     end
 
-    tb = fill(-1, size(self.tbM[1], 1))
+    tb = fill(-1, size(self.tb[1], 1))
 
-    for ix in reverse(eachindex(self.tbM[1]))
+    for ι ∈ reverse(eachindex(self.tb[1]))
       vlocal = min
       global sig = -1
 
-      for jx in eachindex(self.tbM)
-        dob = self.tbM[jx][ix]
+      for ε ∈ eachindex(self.tb)
+        dob = self.tb[ε][ι]
         if dob <= vlocal
           vlocal = dob
-          sig = jx
+          sig = ε
         end
       end
 
-      tb[ix] = state
+      tb[ι] = state
       state = sig
 
     end

@@ -12,8 +12,8 @@
 
   # testing
   @test resetedhmm == [[0.0; repeat([-1.0], size(x, 1))]]
-  @test hmm.dataM == [zeros(size(x, 2))]
-  @test hmm.tbM == [[0.0; repeat([-1.0], size(x, 1))]]
+  @test hmm.data == [zeros(size(x, 2))]
+  @test hmm.tb == [[0.0; repeat([-1.0], size(x, 1))]]
 
   ################################################################################
 
@@ -25,8 +25,8 @@
 
   # testing
   @test resetedhmm == [[0.0; repeat([-1.0], size(v, 1))]]
-  @test hmm.dataM == [zeros(size(v, 2))]
-  @test hmm.tbM == [[0.0; repeat([-1.0], size(v, 1))]]
+  @test hmm.data == [zeros(size(v, 2))]
+  @test hmm.tb == [[0.0; repeat([-1.0], size(v, 1))]]
 
   ################################################################################
 

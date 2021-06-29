@@ -18,14 +18,14 @@ end
 Hidden Markov model object
 
 # Fields
-    dataM::Array: hold data
-    tbM::Array: collect traceback
+    data::Array: hold data
+    tb::Array: collect traceback
 
 See also: [`HMMParams`](@ref), [`setup!`](@ref),
 """
 mutable struct HMM
-  dataM::Array
-  tbM::Array
+  data::Array
+  tb::Array
 end
 
 """
