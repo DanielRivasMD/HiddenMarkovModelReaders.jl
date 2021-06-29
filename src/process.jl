@@ -55,6 +55,15 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
     self.dataM[ix] /= divider[ix]
   end
 
+  if params.verbosity
+    for jx in eachindex(self.dataM)
+      @info "Print state $(jx)"
+      for ix in eachindex(self.dataM[jx])
+        println(round(self.dataM[jx][ix]; digits = 3))
+      end
+    end
+  end
+
   sortHMM!(self)
 
   if !splitSw
