@@ -16,7 +16,7 @@
 
     ################################################################################
 
-    # load small array into hmm
+    # load small array into hidden Markov model
     include("data/smallArray.jl")
 
     # process hidden Markov model
@@ -36,7 +36,7 @@
 
     ################################################################################
 
-    # read file
+    # read file into hidden Markov model
     include("data/readfile.jl")
 
     # process hidden Markov model
