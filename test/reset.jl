@@ -3,7 +3,7 @@
 @testset "Reset" begin
 
   # read file
-  include("readfile.jl")
+  include("data/readfile.jl")
 
   # setup hidden Markov model
   resetedhmm = HiddenMarkovModelReaders.reset!(HMM([zeros(size(v, 2))], [zeros(size(v, 1) + 1)]))

@@ -45,10 +45,7 @@
 
 
     # read file
-    include("readfile.jl")
-
-    # setup hidden Markov model
-    hmm = setup(v)
+    include("data/readfile.jl")
 
     # declare model parameters
     params = HMMParams(
