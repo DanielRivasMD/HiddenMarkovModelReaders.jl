@@ -12,6 +12,7 @@ tests = [
   "reset.jl",
   "feed.jl",
   "backTrace.jl",
+  "sort.jl",
 
   # export functions
   "distance.jl",
