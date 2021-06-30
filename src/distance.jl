@@ -4,7 +4,7 @@
     euclDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
 
 # Description
-Euclidean distance
+Euclidean distance.
 
 # Examples
 ```jldoctest
@@ -22,7 +22,7 @@ end
     bhattDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
 
 # Description
-Bhattacharyya distance
+Bhattacharyya distance.
 
 # Examples
 ```jldoctest
@@ -36,7 +36,7 @@ function bhattDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number
   return -log((arr .* h .|> sqrt |> sum) + 1)
 end
 
-"Amplitude"
+"Amplitude."
 function amplitude(arr::Array{T, 1}) where T <: Number
   return arr .^ 2 |> sum |> sqrt
 end

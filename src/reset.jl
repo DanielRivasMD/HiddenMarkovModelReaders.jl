@@ -1,6 +1,6 @@
 ################################################################################
 
-"Reset hidden Markov model object"
+"Reset hidden Markov model object."
 function reset!(self::HMM)
   self.tb = [χ .= [0; repeat(-1:-1, length(self.tb[1]) - 1)] for χ = self.tb]
 end

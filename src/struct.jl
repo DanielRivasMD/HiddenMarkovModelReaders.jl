@@ -1,7 +1,7 @@
 ################################################################################
 
 """
-Keep track of scores & indexes
+Keep track of scores & indexes.
 
 # Fields
     score::Float64: score
@@ -15,7 +15,7 @@ struct ScorePair
 end
 
 """
-Hidden Markov model object
+Hidden Markov model object.
 
 # Fields
     data::Array: hold data
@@ -28,12 +28,15 @@ mutable struct HMM
   tb::Array
 end
 
+# TODO: write a function signature verifier
 """
-Hidden Markov model parameters
+Hidden Markov model parameters.
 
 # Fields
-    pen::Float64: penalty for hidden Markov model
-    distance::Function: function used to calculate distance. Possible options inlcude: `euclDist`, `bhattDist`.
+    penalty::Float64: penalty for hidden Markov model.
+    distance::Function: function to calculate distance. Possible options provided by this package inlcude: `euclDist`, `bhattDist`. Alternatively, a predefined or an anonymous / λ function with the form `functionDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number` can be passed.
+    minimumFrequency::Int64: minimun frequency for model stat to split during hypothesis generation.
+    verbosity::Bool: increase verbosity.
 
 See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """

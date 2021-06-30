@@ -1,6 +1,6 @@
 ################################################################################
 
-"sort hidden Markov model by amplitude"
+"sort hidden Markov model by amplitude."
 function sortHMM!(self::HMM)
 
   ampVc = map(amplitude, self.data)

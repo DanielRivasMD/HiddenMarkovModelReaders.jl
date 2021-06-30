@@ -1,6 +1,6 @@
 ################################################################################
 
-"Feed on hidden Markov model object"
+"Feed on hidden Markov model object."
 function feed!(self::HMM, frame::Int64, d::Array{Float64, 2}; params::HMMParams)
   for ι ∈ eachindex(self.tb)
     plus = euclDist(self.data[ι], d[frame, :])

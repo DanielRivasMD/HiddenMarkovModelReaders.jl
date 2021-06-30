@@ -1,6 +1,6 @@
 ################################################################################
 
-"Backtrace on hidden Markov model object"
+"Backtrace on hidden Markov model object."
 function backTrace(self::HMM)
   state = 0
   min = self.tb[1][end]
