@@ -48,7 +48,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   end
 
   scores = sort(pp.score, rev = true)
-  ixs = map(x -> findall(x .== pp.score), scores)
+  ixs = map(χ -> findall(χ .== pp.score), scores)
   pp = pp[vcat(ixs...)]
 
   for ι ∈ eachindex(self.data)

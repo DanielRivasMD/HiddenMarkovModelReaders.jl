@@ -5,8 +5,8 @@ function sortHMM!(self::HMM)
 
   ampVc = map(amplitude, self.data)
   sortedAmpVc = sort(ampVc)
-  ampIxVc = map(sortedAmpVc) do y
-   findall(x -> x == y, ampVc)
+  ampIxVc = map(sortedAmpVc) do ζ
+   findall(χ -> χ == ζ, ampVc)
   end
   templ = Array{Array{T, 1} where T <: Number, 1}()
 
