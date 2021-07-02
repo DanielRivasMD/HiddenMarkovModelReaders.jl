@@ -27,8 +27,8 @@ tests = [
 
 @testset verbose = true "Hidden Markov Model Readers" begin
 
-  for tst ∈ tests
-    include(tst)
+  for τ ∈ tests
+    include(τ)
   end
 
 end

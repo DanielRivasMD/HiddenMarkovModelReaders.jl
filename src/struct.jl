@@ -33,18 +33,18 @@ end
 Hidden Markov model parameters.
 
 # Fields
-    penalty::Float64: penalty for hidden Markov model.
-    distance::Function: function to calculate distance. Possible options provided by this package inlcude: `euclDist`, `bhattDist`. Alternatively, a predefined or an anonymous / λ function with the form `functionDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number` can be passed.
-    minimumFrequency::Int64: minimun frequency for model stat to split during hypothesis generation.
-    verbosity::Bool: increase verbosity.
+    penalty::Float64: penalty on hidden Markov model. Defualt = 200.
+    minimumFrequency::Int64: minimun frequency on model state to split during hypothesis generation. Default = 20.
+    verbosity::Bool: increase verbosity. Default = false.
+    distance::Function: calculate distance. Possible options provided by this package inlcude: `euclDist`, `bhattDist`. Alternatively, a predefined or an anonymous / λ functions with the form `functionDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number` can be passed.
 
 See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """
 @with_kw struct HMMParams
   penalty::Float64           = 200.      # model penalty
-  distance::Function         = distance  # distance function
   minimumFrequency::Int64    = 20        # minimum frequency for state split
   verbosity::Bool            = false     # verbosity level
+  distance::Function         = distance  # distance function
 end
 
 ################################################################################
