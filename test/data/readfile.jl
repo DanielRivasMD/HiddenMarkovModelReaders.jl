@@ -1,7 +1,7 @@
 ################################################################################
 
 # read file
-file = "data/signal.tsv"
+file = "test/data/signal.tsv"
 v = readdlm(file)
 
 # setup hidden Markov model
