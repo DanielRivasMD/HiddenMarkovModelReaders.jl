@@ -2,7 +2,7 @@
 
 <!--[![Latest Release](https://img.shields.io/github/release/DanielRivasMD/HiddenMarkovModelReaders.jl.svg)]-->
 
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/stable)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/dev)
