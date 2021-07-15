@@ -1,16 +1,61 @@
-# HiddenMarkovModelReaders
+<!-- Title -->
+<h1 align="center">
+  HiddenMarkovModelReaders
+</h1>
 
-<!--[![Latest Release](https://img.shields.io/github/release/DanielRivasMD/HiddenMarkovModelReaders.jl.svg)]-->
+<!-- description -->
+<p align="center">
+  <strong>Hidden Markov model and unsupervised hypothesis generator for signal processing and anomaly detection</strong>
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- Information badges -->
+<p align="center">
+  <a href="https://www.repostatus.org/#active">
+    <img alt="Repo status" src="https://www.repostatus.org/badges/latest/active.svg?style=flat-square" />
+  </a>
+  <a href="https://mit-license.org">
+    <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square">
+  </a>
+  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/stable">
+    <img alt="Stable" src="https://img.shields.io/badge/docs-stable-blue.svg">
+  </a>
+  </a>
+  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/dev">
+    <img alt="Dev" src="https://img.shields.io/badge/docs-dev-blue.svg">
+  </a>
+</p>
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/stable)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/dev)
+<!-- Community -->
+<p align="center">
+  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl/discussions">
+    <img alt="Ask us anything" src="https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg?style=flat-square">
+  </a>
+  <a href="https://github.com/SciML/ColPrac">
+    <img alt="ColPrac: Contributor's Guide on Collaborative Practices for Community Packages" src="https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet?style=flat-square">
+  </a>
+<!-- <a href="https://doi.org/10.21105/joss.02018">
+    <img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.02018/status.svg">
+  </a> -->
+</p>
 
+<!-- Version and documentation badges -->
+<p align="center">
+  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl/releases">
+    <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/DanielRivasMD/MindReader.jl?include_prereleases&label=latest%20version&logo=github&sort=semver&style=flat-square">
+  <!-- </a>
+  <a href="https://clima.github.io/OceananigansDocumentation/stable">
+    <img alt="Stable documentation" src="https://img.shields.io/badge/documentation-stable%20release-blue?style=flat-square">
+  </a>
+  <a href="https://clima.github.io/OceananigansDocumentation/dev">
+    <img alt="Development documentation" src="https://img.shields.io/badge/documentation-in%20development-orange?style=flat-square">
+  </a> -->
+</p>
+
+![HiddenMarkovModelReaders](assets/HiddenMarkovModelReaders.png)
 
  ## Description
 
-A package for creating Hidden Markov Models & hypothesis generation for signal processing.
+*HiddenMarkovModelReaders* is a package for creating Hidden Markov models and unsupervised hypothesis generation for signal processing and anomaly detection.
 
 ## Installation
 
