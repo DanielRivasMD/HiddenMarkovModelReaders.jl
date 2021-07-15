@@ -21,7 +21,7 @@ Hidden Markov model object.
     data::Array: hold data
     tb::Array: collect traceback
 
-See also: [`HMMParams`](@ref), [`setup!`](@ref),
+See also: [`HMMParams`](@ref), [`setup`](@ref),
 """
 mutable struct HMM
   data::Array
@@ -38,7 +38,7 @@ Hidden Markov model parameters.
     verbosity::Bool: increase verbosity. Default = false.
     distance::Function: calculate distance. Possible options provided by this package inlcude: `euclDist`, `bhattDist`. Alternatively, a predefined or an anonymous / λ functions with the form `functionDist(arr::Array{T, 1}, h::Array{T, 1}) where T <: Number` can be passed.
 
-See also: [`HMM`](@ref), [`setup!`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
+See also: [`HMM`](@ref), [`setup`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """
 @with_kw struct HMMParams
   penalty::Float64           = 200.      # model penalty

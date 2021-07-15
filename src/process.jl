@@ -13,7 +13,7 @@ Meant as an iterative mutating function, perform several steps:
   - generate hypothesized new states.
 
 
-See also: [`setup!`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
+See also: [`setup`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
 function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) where T <: Number
 

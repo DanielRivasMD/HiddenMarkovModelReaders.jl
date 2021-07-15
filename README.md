@@ -71,14 +71,14 @@ lambdaFunctionParams = HMMParams(
 
 ```
 
-Initialize a Hidden Markov model object with `setup!` function.
+Initialize a Hidden Markov model object with `setup` function.
 
 ```julia
 # declare random two-dimensional array
 x = rand(10, 5)
 
 # setup Hidden Markov model object
-hmm = setup!(x)
+hmm = setup(x)
 ```
 
 Control the training using `process!` function.
