@@ -33,29 +33,20 @@
   <a href="https://github.com/SciML/ColPrac">
     <img alt="ColPrac: Contributor's Guide on Collaborative Practices for Community Packages" src="https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet?style=flat-square">
   </a>
-<!-- <a href="https://doi.org/10.21105/joss.02018">
-    <img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.02018/status.svg">
-  </a> -->
 </p>
 
 <!-- Version and documentation badges -->
 <p align="center">
   <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl/releases">
     <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/DanielRivasMD/MindReader.jl?include_prereleases&label=latest%20version&logo=github&sort=semver&style=flat-square">
-  <!-- </a>
-  <a href="https://clima.github.io/OceananigansDocumentation/stable">
-    <img alt="Stable documentation" src="https://img.shields.io/badge/documentation-stable%20release-blue?style=flat-square">
   </a>
-  <a href="https://clima.github.io/OceananigansDocumentation/dev">
-    <img alt="Development documentation" src="https://img.shields.io/badge/documentation-in%20development-orange?style=flat-square">
-  </a> -->
 </p>
 
 ![HiddenMarkovModelReaders](assets/HiddenMarkovModelReaders.png)
 
  ## Description
 
-*HiddenMarkovModelReaders* is a package for creating Hidden Markov models and unsupervised hypothesis generation for signal processing and anomaly detection.
+**HiddenMarkovModelReaders** is a package for creating Hidden Markov models and unsupervised hypothesis generation for signal processing and anomaly detection.
 
 ## Installation
 
@@ -77,7 +68,7 @@ For more information, see the [Pkg documentation](https://docs.julialang.org/en/
 Using `Parameters.jl` and `HMMParams` struct the user can control all of the parameters of the model in a user friendly way.
 
 The `distance` function passed to `HMMParams` struct could either be a function:
-- Contained in `HiddenMarkovModelReaders` package, i.e., `euclDist` or `bhattDist`, for Euclidean or Bhattacharyya distances, respectively.
+- Contained in **HiddenMarkovModelReaders** package, i.e., `euclDist` or `bhattDist`, for Euclidean or Bhattacharyya distances, respectively.
 - A user predefined function whose declaration precceds the `HMMParams` strcutor.
 - A lambda or anonymous function defined within the struct declaration.
 
@@ -141,13 +132,13 @@ resultsDc[2] = process!(hmm, x, false, params = hmmParams)
 
 ## Citations
 
-If you use HiddenMarkovModelReaders or derivates in your work, please consider citing the code record.
+If you use **HiddenMarkovModelReaders** or derivates in your work, please consider citing the code record.
 
 ## Contributing and Support
 
 [![ColPrac: Contributor's Guide on Collaborative Practices for Community Packages](https://img.shields.io/badge/ColPrac-Contributor's%20Guide-blueviolet)](https://github.com/SciML/ColPrac)
 
-In general contributions should follow [ColPrac](https://github.com/SciML/ColPrac). If you are interested in extending/improving HiddenMarkovModelReaders, head to the [discussions](https://github.com/DanielRivasMD/HiddenMarkovModelReaders/discussions) to reach out. For support with using HiddenMarkovModelReaders, please open an [issue](https://github.com/DanielRivasMD/HiddenMarkovModelReaders/issues/new/) describing the problem and steps to reproduce it.
+In general contributions should follow [ColPrac](https://github.com/SciML/ColPrac). If you are interested in extending/improving **HiddenMarkovModelReaders**, head to the [discussions](https://github.com/DanielRivasMD/HiddenMarkovModelReaders/discussions) to reach out. For support with using **HiddenMarkovModelReaders**, please open an [issue](https://github.com/DanielRivasMD/HiddenMarkovModelReaders/issues/new/) describing the problem and steps to reproduce it.
 
 ## License
 
