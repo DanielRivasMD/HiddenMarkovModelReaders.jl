@@ -7,6 +7,8 @@
   # testing
   @testset "Euclidean distance" begin
     @test euclDist(collect(1:10), fill(5, 10)) == 9.219544457292887
+    @test euclDist(collect(1:10), fill(7, 10)) == 10.246950765959598
+    @test euclDist(collect(1:10), fill(1, 10)) == 16.881943016134134
   end
 
   ################################################################################
@@ -14,6 +16,8 @@
   # testing
   @testset "Bhattacharyya distance" begin
     @test bhattDist(collect(1:10), fill(5, 10)) == -3.936532135073928
+    @test bhattDist(collect(1:10), fill(7, 10)) == -4.101741743301577
+    @test bhattDist(collect(1:10), fill(1, 10)) == -3.1556496448455857
   end
 
   ################################################################################
