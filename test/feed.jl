@@ -24,7 +24,7 @@
   fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, x, params = params)
 
   # testing
-  @test fedhmm == nothing
+  @test fedhmm === nothing
   @test hmm.data == [zeros(size(x, 2))]
   @test hmm.tb == [[0.0; 11008.8486526594; repeat([-1.0], size(x, 1) - 1)]]
 
@@ -52,7 +52,7 @@
   fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, v, params = params)
 
   # testing
-  @test fedhmm == nothing
+  @test fedhmm === nothing
   @test hmm.data == [zeros(size(v, 2))]
   @test hmm.tb == [[0.0; 11008.8486526594; repeat([-1.0], size(v, 1) - 1)]]
 
