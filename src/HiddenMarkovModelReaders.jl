@@ -19,6 +19,9 @@ export HMM, HMMParams
 # distance functions
 export euclDist, bhattDist
 
+# amplitude
+export amplitude
+
 ################################################################################
 
 # hidden markov model object

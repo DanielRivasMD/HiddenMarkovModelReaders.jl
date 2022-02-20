@@ -16,18 +16,18 @@
   <a href="https://mit-license.org">
     <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square">
   </a>
-  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/stable">
+  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders/stable">
     <img alt="Stable" src="https://img.shields.io/badge/docs-stable-blue.svg">
   </a>
   </a>
-  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders.jl/dev">
+  <a href="https://DanielRivasMD.github.io/HiddenMarkovModelReaders/dev">
     <img alt="Dev" src="https://img.shields.io/badge/docs-dev-blue.svg">
   </a>
 </p>
 
 <!-- Community -->
 <p align="center">
-  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl/discussions">
+  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders/discussions">
     <img alt="Ask us anything" src="https://img.shields.io/badge/Ask%20us-anything-1abc9c.svg?style=flat-square">
   </a>
   <a href="https://github.com/SciML/ColPrac">
@@ -37,7 +37,7 @@
 
 <!-- Version and documentation badges -->
 <p align="center">
-  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl/releases">
+  <a href="https://github.com/DanielRivasMD/HiddenMarkovModelReaders/releases">
     <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/DanielRivasMD/MindReader.jl?include_prereleases&label=latest%20version&logo=github&sort=semver&style=flat-square">
   </a>
 </p>
