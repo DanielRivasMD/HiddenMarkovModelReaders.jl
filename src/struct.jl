@@ -19,13 +19,15 @@ Hidden Markov model object.
 
 # Fields
     data::Array: hold data
-    tb::Array: collect traceback
+    model::Array: keep model scores
+    traceback::Array: collect traceback
 
 See also: [`HMMParams`](@ref), [`setup`](@ref),
 """
 mutable struct HMM
   data::Array
-  tb::Array
+  model::Array
+  traceback::Array
 end
 
 # TODO: write a function signature verifier

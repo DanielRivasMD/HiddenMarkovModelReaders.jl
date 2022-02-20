@@ -36,12 +36,12 @@ Julia's general user friendliness makes this software available to people a wide
 
 # Description
 
-`HiddenMarkovModelReaders` offers APIs to declare the basic settings: the `HMMParams` struct, where the tranistion `penalty` for the model, the `distance` function to use, and the `verbosity` level can be defined. Also, it allows for creating and manipulating the Hidden Markov model `HMM`, where `data` carries the data, and `tb` receives the traceback. `HiddenMarkovModelReaders` provides two built-in distance functions `euclDist` and `bhattDist` for the Euclidean and Bhattacharyya distances, respectively. Additional user-provided distance functions are easily integrated by declaration prior to the parameters are defined or during initialization of `HMMParams` struct as a lambda or anonymous function.
+`HiddenMarkovModelReaders` offers APIs to declare the basic settings: the `HMMParams` struct, where the tranistion `penalty` for the model, the `distance` function to use, and the `verbosity` level can be defined. Also, it allows for creating and manipulating the Hidden Markov model `HMM`, where `data` carries the data, `model` collects the model,  and `traceback` receives the traceback. `HiddenMarkovModelReaders` provides two built-in distance functions `euclDist` and `bhattDist` for the Euclidean and Bhattacharyya distances, respectively. Additional user-provided distance functions are easily integrated by declaration prior to the parameters are defined or during initialization of `HMMParams` struct as a lambda or anonymous function.
 
-`HiddenMarkovModelReaders` offers two main functions: `setup` and `process!` for a straght-forward workflow. The `setup` function initializes an empty instance of the `HMM` structure, while `process!` is a mutating function that is used in an iterative manner. Processing is done in the following manner:
+`HiddenMarkovModelReaders` API offers two main functions: `setup` and `process!` for a straght-forward workflow. The `setup` function initializes an empty instance of the `HMM` structure, while `process!` is a mutating function that is used in an iterative manner. Processing is done in the following manner:
 
 - First, reseting the traceback of the `HMM` struct.
-- Feeding new data into the model by calculating the distance beetwen the incoming data and the model.
+- Feeding, via dynamic programming, new data into the model by calculating the distance beetwen the incoming data and the model.
 - Next, seeting the minimum traceback and calculating the state.
 - Updating the model by adding incoming data and calculating distance defined by the `distance` setting.
 - Finally, sorting the states of the `HMM` by overall amplitude of its feature vectors.

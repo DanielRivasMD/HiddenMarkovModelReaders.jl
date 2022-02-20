@@ -26,7 +26,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   end
 
   # backtrace
-  τ = backTrace(self)
+  backTrace(self)
 
   divider = fill(1, size(self.data, 1))
   orig = deepcopy(self.data)
@@ -37,12 +37,12 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   mcount = zeros(Float64, size(self.data))
 
   for ι ∈ axes(d, 1)
-    self.data[τ[ι]] .+= d[ι, :]
-    divider[τ[ι]] += 1
-    pair = ScorePair(params.distance(orig[τ[ι]], d[ι, :]), ι)
+    self.data[self.traceback[ι]] .+= d[ι, :]
+    divider[self.traceback[ι]] += 1
+    pair = ScorePair(params.distance(orig[self.traceback[ι]], d[ι, :]), ι)
 
-    mdist[τ[ι]] += pair.score
-    mcount[τ[ι]] += 1
+    mdist[self.traceback[ι]] += pair.score
+    mcount[self.traceback[ι]] += 1
 
     push!(pp, pair)
   end
@@ -51,6 +51,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   ixs = map(χ -> findall(χ .== pp.score), scores)
   pp = pp[vcat(ixs...)]
 
+  # update / normalize models
   for ι ∈ eachindex(self.data)
     self.data[ι] /= divider[ι]
   end
@@ -67,7 +68,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   sortHMM!(self)
 
   if !splitSw
-    return τ, self.data
+    return self.traceback, self.data
   end
 
   max = 0.
@@ -89,7 +90,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   count = 1
   for ι ∈ eachindex(pp)
-    if τ[pp[ι].index] != toSplit
+    if self.traceback[pp[ι].index] != toSplit
       continue
     end
     extra += d[pp[ι].index, :]
@@ -103,9 +104,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   push!(self.data, extra)
 
-  push!(self.tb, fill(0, size(self.tb[1], 1)))
-
-  return τ, self.data
+  push!(self.model, fill(0, size(self.model[1], 1)))
 
 end
 
