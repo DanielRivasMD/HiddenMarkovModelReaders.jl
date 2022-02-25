@@ -1,7 +1,11 @@
 name = "HiddenMarkovModelReaders"
 uuid = "760a73f4-dca7-4de8-943d-18a66a2ce654"
-authors = ["DanielRivasMD <danielrivasmd@gmail.com> and contributors"]
-version = "0.2.0"
+repo = "https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl"
+keywords = ["signal-processing", "unsupervised-learning", "hidden-markov-model"]
+license = "MIT"
+desc = " Hidden Markov model and unsupervised hypothesis generator for signal processing and anomaly detection."
+authors = ["Daniel Rivas <danielrivasmd@gmail.com> and Manfred Grabherr <manfredgrabherr@gmail.com>"]
+version = "0.2.1"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
