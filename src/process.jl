@@ -68,7 +68,7 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   sortHMM!(self)
 
   if !splitSw
-    return self.traceback, self.data
+    return
   end
 
   max = 0.
@@ -105,6 +105,8 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
   push!(self.data, extra)
 
   push!(self.model, fill(0, size(self.model[1], 1)))
+
+  return
 
 end
 
