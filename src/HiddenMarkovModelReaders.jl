@@ -24,23 +24,28 @@ export amplitude
 
 ################################################################################
 
-# hidden markov model object
-include("struct.jl")
+# load functions
+begin
 
-# methods
-include("reset.jl")
-include("feed.jl")
-include("backTrace.jl")
-include("sort.jl")
+  # hidden markov model object
+  include("struct.jl")
 
-# distances
-include("distance.jl")
+  # methods
+  include("reset.jl")
+  include("feed.jl")
+  include("backTrace.jl")
+  include("sort.jl")
 
-# setup
-include("setup.jl")
+  # distances
+  include("distance.jl")
 
-# process
-include("process.jl")
+  # setup
+  include("setup.jl")
+
+  # process
+  include("process.jl")
+
+end;
 
 ################################################################################
 
