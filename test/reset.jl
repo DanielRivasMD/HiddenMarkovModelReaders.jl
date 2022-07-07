@@ -8,12 +8,12 @@
   include("data/smallArray.jl")
 
   # reset
-  resetedhmm = HiddenMarkovModelReaders.reset!(HMM([zeros(size(x, 2))], [zeros(size(x, 1) + 1)], Array{Int32}(undef, 0)))
+  resthmm = HiddenMarkovModelReaders.reset!(HMM([zeros(size(ɒ, 2))], [zeros(size(ɒ, 1) + 1)], Array{Int32}(undef, 0)))
 
   # testing
-  @test resetedhmm == [[0.0; repeat([-1.0], size(x, 1))]]
-  @test hmm.data == [zeros(size(x, 2))]
-  @test hmm.model == [[0.0; repeat([-1.0], size(x, 1))]]
+  @test resthmm == [[0.0; repeat([-1.0], size(ɒ, 1))]]
+  @test hmm.data == [zeros(size(ɒ, 2))]
+  @test hmm.model == [[0.0; repeat([-1.0], size(ɒ, 1))]]
 
   ####################################################################################################
 
@@ -21,12 +21,12 @@
   include("data/readfile.jl")
 
   # reset
-  resetedhmm = HiddenMarkovModelReaders.reset!(HMM([zeros(size(v, 2))], [zeros(size(v, 1) + 1)], Array{Int32}(undef, 0)))
+  resthmm = HiddenMarkovModelReaders.reset!(HMM([zeros(size(ɒ, 2))], [zeros(size(ɒ, 1) + 1)], Array{Int32}(undef, 0)))
 
   # testing
-  @test resetedhmm == [[0.0; repeat([-1.0], size(v, 1))]]
-  @test hmm.data == [zeros(size(v, 2))]
-  @test hmm.model == [[0.0; repeat([-1.0], size(v, 1))]]
+  @test resthmm == [[0.0; repeat([-1.0], size(ɒ, 1))]]
+  @test hmm.data == [zeros(size(ɒ, 2))]
+  @test hmm.model == [[0.0; repeat([-1.0], size(ɒ, 1))]]
 
   ####################################################################################################
 

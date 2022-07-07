@@ -16,9 +16,7 @@ tests = [
 
   # export functions
   "distance.jl",
-
   "setup.jl",
-
   "process.jl",
 
 ]

@@ -8,8 +8,8 @@
   include("data/smallArray.jl")
 
   # testing
-  @test hmm.data == [zeros(size(x, 2))]
-  @test hmm.model == [[0.0; repeat([-1.0], size(x, 1))]]
+  @test hmm.data == [zeros(size(ɒ, 2))]
+  @test hmm.model == [[0.0; repeat([-1.0], size(ɒ, 1))]]
 
   ####################################################################################################
 
@@ -17,8 +17,8 @@
   include("data/readfile.jl")
 
   # testing
-  @test hmm.data == [zeros(size(v, 2))]
-  @test hmm.model == [[0.0; repeat([-1.0], size(v, 1))]]
+  @test hmm.data == [zeros(size(ɒ, 2))]
+  @test hmm.model == [[0.0; repeat([-1.0], size(ɒ, 1))]]
 
   ####################################################################################################
 

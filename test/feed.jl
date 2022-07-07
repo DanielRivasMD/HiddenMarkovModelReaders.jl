@@ -21,23 +21,23 @@
   HiddenMarkovModelReaders.reset!(hmm)
 
   # feed frame
-  fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, x, params = params)
+  fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, ɒ; params = params)
 
   # testing
   @test fedhmm === nothing
-  @test hmm.data == [zeros(size(x, 2))]
-  @test hmm.model == [[0.0; 11008.8486526594; repeat([-1.0], size(x, 1) - 1)]]
+  @test hmm.data == [zeros(size(ɒ, 2))]
+  @test hmm.model == [[0.0; 11008.8486526594; repeat([-1.0], size(ɒ, 1) - 1)]]
 
   # reset
   HiddenMarkovModelReaders.reset!(hmm)
 
   # feed frame
-  for ι ∈ axes(x, 1)
-    HiddenMarkovModelReaders.feed!(hmm, ι, x, params = params)
+  for ι ∈ axes(ɒ, 1)
+    HiddenMarkovModelReaders.feed!(hmm, ι, ɒ; params = params)
   end
 
   # testing
-  @test hmm.data == [zeros(size(x, 2))]
+  @test hmm.data == [zeros(size(ɒ, 2))]
   @test hmm.model == [[0.0, 11008.8486526594, 20778.203057470826, 30297.40010890268, 41255.56384672195, 53064.52909174562, 60668.05291217826, 70273.3913728092, 81813.54092914864, 90970.60619348944, 100636.00818678577]]
 
   ####################################################################################################
@@ -49,7 +49,7 @@
   HiddenMarkovModelReaders.reset!(hmm)
 
   # feed frame
-  fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, v, params = params)
+  fedhmm = HiddenMarkovModelReaders.feed!(hmm, 1, v; params = params)
 
   # testing
   @test fedhmm === nothing
@@ -60,8 +60,8 @@
   HiddenMarkovModelReaders.reset!(hmm)
 
   # feed frame
-  for ι ∈ axes(x, 1)
-    HiddenMarkovModelReaders.feed!(hmm, ι, v, params = params)
+  for ι ∈ axes(ɒ, 1)
+    HiddenMarkovModelReaders.feed!(hmm, ι, v; params = params)
   end
 
   # testing
