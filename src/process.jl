@@ -2,9 +2,8 @@
 
 """
 
-    process!(∫::HMM, d::A{N, 2}, ϟ::B;
+    process!(∫::HMM, ɒ::Matrix{N}, ϟ::B;
     params::HMMParams)
-    where A <: Array
     where N <: Number
     where B <: Bool
 
@@ -19,7 +18,7 @@ Meant as an iterative mutating function, perform several steps:
 
 See also: [`setup`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
-function process!(∫::HMM, ɒ::A{N, 2}, ϟ::B; params::HMMParams) where A <: Array where N <: Number where B <: Bool
+function process!(∫::HMM, ɒ::Matrix{N}, ϟ::B; params::HMMParams) where N <: Number where B <: Bool
 
   # reset
   reset!(∫)

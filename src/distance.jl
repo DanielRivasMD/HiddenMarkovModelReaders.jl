@@ -2,8 +2,7 @@
 
 """
 
-    euclDist(ɒ::A{N, 1}, ʌ::A{N, 1})
-    where A <: Array
+    euclDist(ɒ::Vector{N}, ʌ::Vector{N})
     where N <: Number
 
 # Description
@@ -17,7 +16,7 @@ julia> euclDist(collect(1:10), fill(5, 10))
 
 See also: [`bhattDist`](@ref), [`amplitude`](@ref)
 """
-function euclDist(ɒ::A{N, 1}, ʌ::A{N, 1}) where A <: Array where N <: Number
+function euclDist(ɒ::Vector{N}, ʌ::Vector{N}) where N <: Number
   return (ɒ .- ʌ) .^ 2 |> sum |> sqrt
 end
 
@@ -25,8 +24,7 @@ end
 
 """
 
-    bhattDist(ɒ::A{N, 1}, ʌ::A{N, 1})
-    where A <: Array
+    bhattDist(ɒ::Vector{N}, ʌ::Vector{N})
     where N <: Number
 
 # Description
@@ -40,7 +38,7 @@ julia> bhattDist(collect(1:10), fill(5, 10))
 
 See also: [`euclDist`](@ref), [`amplitude`](@ref)
 """
-function bhattDist(ɒ::A{N, 1}, ʌ::A{N, 1}) where A <: Array where N <: Number
+function bhattDist(ɒ::Vector{N}, ʌ::Vector{N}) where N <: Number
   return -log((ɒ .* ʌ .|> sqrt |> sum) + 1)
 end
 
@@ -48,8 +46,7 @@ end
 
 """
 
-    amplitude(ɒ::A{N, 1})
-    where A <: Array
+    amplitude(ɒ::Vector{N})
     where N <: Number
 
 # Description
@@ -64,7 +61,7 @@ julia> amplitude(collect(1:10))
 
 See also: [`euclDist`](@ref), [`bhattDist`](@ref)
 """
-function amplitude(ɒ::A{N, 1}) where A <: Array where N <: Number
+function amplitude(ɒ::Vector{N}) where N <: Number
   return ɒ .^ 2 |> sum |> sqrt
 end
 

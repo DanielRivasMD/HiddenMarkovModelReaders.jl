@@ -12,7 +12,7 @@ Reconstruct hidden markov model.
 
 See also: [`writeHMM`](@ref)
 """
-function reconstructHMM(path::S, filename::S, channels::V{S}) where S <: String where V <: Vector
+function reconstructHMM(path::S, filename::S, channels::Vector{S}) where S <: String
   hmmDc = Dict{S, HMM}()
   for κ ∈ channels
     hmmDc[κ] = reconstructHMM(path, string(filename, "_", κ))
