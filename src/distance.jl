@@ -2,8 +2,9 @@
 
 """
 
-    euclDist(ɒ::Vector{N}, ʌ::Vector{N})
-    where N <: Number
+    euclDist(ɒ::Vector{X}, ʌ::Vector{Y})
+    where X <: Number
+    where Y <: Number
 
 # Description
 Euclidean distance.
@@ -16,7 +17,7 @@ julia> euclDist(collect(1:10), fill(5, 10))
 
 See also: [`bhattDist`](@ref), [`amplitude`](@ref)
 """
-function euclDist(ɒ::Vector{N}, ʌ::Vector{N}) where N <: Number
+function euclDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
   return (ɒ .- ʌ) .^ 2 |> sum |> sqrt
 end
 
@@ -24,8 +25,9 @@ end
 
 """
 
-    bhattDist(ɒ::Vector{N}, ʌ::Vector{N})
-    where N <: Number
+    bhattDist(ɒ::Vector{X}, ʌ::Vector{Y})
+    where X <: Number
+    where Y <: Number
 
 # Description
 Bhattacharyya distance.
@@ -38,7 +40,7 @@ julia> bhattDist(collect(1:10), fill(5, 10))
 
 See also: [`euclDist`](@ref), [`amplitude`](@ref)
 """
-function bhattDist(ɒ::Vector{N}, ʌ::Vector{N}) where N <: Number
+function bhattDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
   return -log((ɒ .* ʌ .|> sqrt |> sum) + 1)
 end
 
@@ -46,8 +48,8 @@ end
 
 """
 
-    amplitude(ɒ::Vector{N})
-    where N <: Number
+    amplitude(ɒ::Vector{X})
+    where X <: Number
 
 # Description
 Amplitude.
@@ -61,7 +63,7 @@ julia> amplitude(collect(1:10))
 
 See also: [`euclDist`](@ref), [`bhattDist`](@ref)
 """
-function amplitude(ɒ::Vector{N}) where N <: Number
+function amplitude(ɒ::Vector{X}) where X <: Number
   return ɒ .^ 2 |> sum |> sqrt
 end
 

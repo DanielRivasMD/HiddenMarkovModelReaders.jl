@@ -39,8 +39,8 @@ function process!(∫::HMM, ɒ::Matrix{N}, ϟ::B; params::HMMParams) where N <: 
   mdist = zeros(Float64, size(∫.data))
   mcount = zeros(Float64, size(∫.data))
 
-  for ι ∈ axes(d, 1)
-    ∫.data[∫.traceback[ι]] .+= d[ι, :]
+  for ι ∈ axes(ɒ, 1)
+    ∫.data[∫.traceback[ι]] .+= ɒ[ι, :]
     divider[∫.traceback[ι]] += 1
     pair = ScorePair(params.distance(orig[∫.traceback[ι]], ɒ[ι, :]), ι)
 
@@ -96,7 +96,7 @@ function process!(∫::HMM, ɒ::Matrix{N}, ϟ::B; params::HMMParams) where N <: 
     if ∫.traceback[scorePair[ι].index] != toSplit
       continue
     end
-    extra += d[scorePair[ι].index, :]
+    extra += ɒ[scorePair[ι].index, :]
     count += 1
     if count >= half
       break
