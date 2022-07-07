@@ -22,6 +22,8 @@ export euclDist, bhattDist
 # amplitude
 export amplitude
 
+# IO
+export reconstructHMM
 ################################################################################
 
 # load functions
@@ -44,6 +46,9 @@ begin
 
   # process
   include("process.jl")
+
+  # IO
+  include("readIO.jl")
 
 end;
 
