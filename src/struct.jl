@@ -1,6 +1,8 @@
 ####################################################################################################
 
 """
+
+# Description
 Keep track of scores & indexes.
 
 # Fields
@@ -15,6 +17,8 @@ struct ScorePair
 end
 
 """
+
+# Description
 Hidden Markov model object.
 
 # Fields
@@ -32,6 +36,8 @@ end
 
 # TODO: write a function signature verifier
 """
+
+# Description
 Hidden Markov model parameters.
 
 # Fields
@@ -43,10 +49,10 @@ Hidden Markov model parameters.
 See also: [`HMM`](@ref), [`setup`](@ref), [`euclDist`](@ref), [`bhattDist`](@ref),
 """
 @with_kw struct HMMParams
-  penalty::Float64           = 200.      # model penalty
-  minimumFrequency::Int64    = 20        # minimum frequency for state split
-  verbosity::Bool            = false     # verbosity level
-  distance::Function         = distance  # distance function
+  penalty::Float64           = 200.     # model penalty
+  minimumFrequency::Int64    = 20       # minimum frequency for state split
+  verbosity::Bool            = false    # verbosity level
+  distance::Function         = distance # distance function
 end
 
 ####################################################################################################

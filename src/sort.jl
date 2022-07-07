@@ -1,19 +1,29 @@
 ####################################################################################################
 
 "sort hidden Markov model by amplitude."
-function sortHMM!(self::HMM)
+function sortHMM!(∫::HMM)
 
-  ampVc = map(amplitude, self.data)
+  # calculate amplitude
+  ampVc = map(amplitude, ∫.data)
+
+  # sort
   sortedAmpVc = sort(ampVc)
-  ampIxVc = map(sortedAmpVc) do ζ
-   findall(χ -> χ == ζ, ampVc)
-  end
-  templ = Array{Array{T, 1} where T <: Number, 1}()
 
-  for ι ∈ ampIxVc
-    push!(templ, self.data[ι[1]])
+  # find indexes
+  ampIxVc = map(sortedAmpVc) do μ
+    findall(χ -> χ == μ, ampVc)
   end
-  self.data = templ
+
+  # preallocate
+  templ = Array{Array{Number, 1}, 1}()
+
+  # iterate on index vector
+  for ι ∈ ampIxVc
+    push!(templ, ∫.data[ι[1]])
+  end
+
+  # return
+  ∫.data = templ
 end
 
 ####################################################################################################

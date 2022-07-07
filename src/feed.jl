@@ -1,14 +1,14 @@
 ####################################################################################################
 
 "Feed on hidden Markov model object."
-function feed!(self::HMM, frame::Int64, d::Array{Float64, 2}; params::HMMParams)
-  for ι ∈ eachindex(self.model)
-    plus = euclDist(self.data[ι], d[frame, :])
-    for ε ∈ eachindex(self.model)
+function feed!(∫::HMM, frame::I, ɒ::A{F, 2}; params::HMMParams) where I <: Int64 where A <: Array where F <: Float64
+  for ι ∈ eachindex(∫.model)
+    plus = euclDist(∫.data[ι], ɒ[frame, :])
+    for ο ∈ eachindex(∫.model)
       lpen = copy(params.penalty)
-      if (ε == ι) lpen = 0 end
-      if self.model[ε][frame + 1] < 0. || self.model[ι][frame] + plus + lpen < self.model[ε][frame + 1]
-        self.model[ε][frame + 1] = self.model[ι][frame] + plus + lpen
+      if (ο == ι) lpen = 0 end
+      if ∫.model[ο][frame + 1] < 0. || ∫.model[ι][frame] + plus + lpen < ∫.model[ο][frame + 1]
+        ∫.model[ο][frame + 1] = ∫.model[ι][frame] + plus + lpen
       end
     end
   end

@@ -1,8 +1,12 @@
 ####################################################################################################
 
 """
-    process(self::HMM, d::Array{T, 2}, splitSw::Bool;
-    params::HMMParams) where T <: Number
+
+    process!(∫::HMM, d::A{N, 2}, ϟ::B;
+    params::HMMParams)
+    where A <: Array
+    where N <: Number
+    where B <: Bool
 
 # Description
 Process hidden Markov model object.
@@ -15,59 +19,59 @@ Meant as an iterative mutating function, perform several steps:
 
 See also: [`setup`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
-function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) where T <: Number
+function process!(∫::HMM, ɒ::A{N, 2}, ϟ::B; params::HMMParams) where A <: Array where N <: Number where B <: Bool
 
   # reset
-  reset!(self)
+  reset!(∫)
 
   # feed frame
-  for ι ∈ axes(d, 1)
-    feed!(self, ι, d, params = params)
+  for ι ∈ axes(ɒ, 1)
+    feed!(∫, ι, ɒ; params = params)
   end
 
   # backtrace
-  backTrace(self)
+  backTrace(∫)
 
-  divider = fill(1, size(self.data, 1))
-  orig = deepcopy(self.data)
-  pp = StructArrays.StructArray{ScorePair}(undef, 0)
+  divider = fill(1, size(∫.data, 1))
+  orig = deepcopy(∫.data)
+  scorePair = StructArray{ScorePair}(undef, 0)
 
   # update model
-  mdist = zeros(Float64, size(self.data))
-  mcount = zeros(Float64, size(self.data))
+  mdist = zeros(Float64, size(∫.data))
+  mcount = zeros(Float64, size(∫.data))
 
   for ι ∈ axes(d, 1)
-    self.data[self.traceback[ι]] .+= d[ι, :]
-    divider[self.traceback[ι]] += 1
-    pair = ScorePair(params.distance(orig[self.traceback[ι]], d[ι, :]), ι)
+    ∫.data[∫.traceback[ι]] .+= d[ι, :]
+    divider[∫.traceback[ι]] += 1
+    pair = ScorePair(params.distance(orig[∫.traceback[ι]], ɒ[ι, :]), ι)
 
-    mdist[self.traceback[ι]] += pair.score
-    mcount[self.traceback[ι]] += 1
+    mdist[∫.traceback[ι]] += pair.score
+    mcount[∫.traceback[ι]] += 1
 
-    push!(pp, pair)
+    push!(scorePair, pair)
   end
 
-  scores = sort(pp.score, rev = true)
-  ixs = map(χ -> findall(χ .== pp.score), scores)
-  pp = pp[vcat(ixs...)]
+  scores = sort(scorePair.score, rev = true)
+  ixs = map(χ -> findall(χ .== scorePair.score), scores)
+  scorePair = scorePair[vcat(ixs...)]
 
   # update / normalize models
-  for ι ∈ eachindex(self.data)
-    self.data[ι] /= divider[ι]
+  for ι ∈ eachindex(∫.data)
+    ∫.data[ι] /= divider[ι]
   end
 
   if params.verbosity
-    for ε ∈ eachindex(self.data)
-      @info "Print state $(ε)"
-      for ι ∈ eachindex(self.data[ε])
-        println(round(self.data[ε][ι]; digits = 3))
+    for ο ∈ eachindex(∫.data)
+      @info "Print state $(ο)"
+      for ι ∈ eachindex(∫.data[ο])
+        println(round(∫.data[ο][ι]; digits = 3))
       end
     end
   end
 
-  sortHMM!(self)
+  sortHMM!(∫)
 
-  if !splitSw
+  if !ϟ
     return
   end
 
@@ -86,14 +90,14 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   half = 1 + mcount[toSplit] / 4
 
-  extra = fill(0, size(self.data[1], 1))
+  extra = fill(0, size(∫.data[1], 1))
 
   count = 1
-  for ι ∈ eachindex(pp)
-    if self.traceback[pp[ι].index] != toSplit
+  for ι ∈ eachindex(scorePair)
+    if ∫.traceback[scorePair[ι].index] != toSplit
       continue
     end
-    extra += d[pp[ι].index, :]
+    extra += d[scorePair[ι].index, :]
     count += 1
     if count >= half
       break
@@ -102,9 +106,9 @@ function process!(self::HMM, d::Array{T, 2}, splitSw::Bool; params::HMMParams) w
 
   extra ./= (count - 1)
 
-  push!(self.data, extra)
+  push!(∫.data, extra)
 
-  push!(self.model, fill(0, size(self.model[1], 1)))
+  push!(∫.model, fill(0, size(∫.model[1], 1)))
 
   return
 
