@@ -24,6 +24,8 @@ export amplitude
 
 # IO
 export reconstructHMM
+export writeHMM
+
 ################################################################################
 
 # load functions
@@ -49,6 +51,7 @@ begin
 
   # IO
   include("readIO.jl")
+  include("writeIO.jl")
 
 end;
 
