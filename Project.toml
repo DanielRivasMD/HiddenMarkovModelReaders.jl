@@ -5,7 +5,7 @@ keywords = ["signal-processing", "unsupervised-learning", "hidden-markov-model"]
 license = "MIT"
 desc = " Hidden Markov model and unsupervised hypothesis generator for signal processing and anomaly detection."
 authors = ["Daniel Rivas <danielrivasmd@gmail.com> and Manfred Grabherr <manfredgrabherr@gmail.com>"]
-version = "0.2.2"
+version = "0.3.0"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
