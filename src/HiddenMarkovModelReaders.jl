@@ -8,6 +8,7 @@ module HiddenMarkovModelReaders
 using StructArrays
 using Parameters
 using DelimitedFiles
+using DataFrames
 
 ####################################################################################################
 
