@@ -68,7 +68,7 @@ For more information, see the [Pkg documentation](https://docs.julialang.org/en/
 Using `Parameters.jl` and `HMMParams` struct the user can control all of the parameters of the model in a user friendly way.
 
 The `distance` function passed to `HMMParams` struct could either be a function:
-- Contained in **HiddenMarkovModelReaders** package, i.e., `euclDist` or `bhattDist`, for Euclidean or Bhattacharyya distances, respectively.
+- Contained in **HiddenMarkovModelReaders** package, i.e., `euclideanDistance` or `bhattacharyyaDistance`, for Euclidean or Bhattacharyya distances, respectively.
 - A user predefined function whose declaration precceds the `HMMParams` strcutor.
 - A lambda or anonymous function defined within the struct declaration.
 
@@ -80,14 +80,14 @@ The function must be of the form `function distance(arr::Array{T, 1}, h::Array{T
 # Declare all values explicitly
 explicitParams = HMMParams(
   penalty                    = 200,
-  distance                   = bhattDist,                  # package-defined distance function
+  distance                   = bhattacharyyaDistance,                  # package-defined distance function
   minimumFrequency           = 20,
   verbosity                  = false,
 )
 
 # Use default values and use package-defined distance function
 defaultParams = HMMParams(
-  distance                   = euclDist,                   # package-defined distance function
+  distance                   = euclideanDistance,                   # package-defined distance function
 )
 
 # User-defined distance function
