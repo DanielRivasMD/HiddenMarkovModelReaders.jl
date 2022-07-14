@@ -80,24 +80,24 @@ The function must be of the form `function distance(arr::Array{T, 1}, h::Array{T
 # Declare all values explicitly
 explicitParams = HMMParams(
   penalty                    = 200,
-  distance                   = bhattacharyyaDistance,                  # package-defined distance function
+  distance                   = bhattacharyyaDistance,      # package-defined distance function
   minimumFrequency           = 20,
   verbosity                  = false,
 )
 
 # Use default values and use package-defined distance function
 defaultParams = HMMParams(
-  distance                   = euclideanDistance,                   # package-defined distance function
+  distance                   = euclideanDistance,          # package-defined distance function
 )
 
 # User-defined distance function
-function myDist(arr, h)
+function myDistance(arr, h)
   return (arr .- h) .^ 2
 end
 
 # Use prefined distance function
 myfunctionParams = HMMParams(
-  distance                   = myDist,                     # user-predefined distance function
+  distance                   = myDistance,                 # user-predefined distance function
 )
 
 # Use lambda distance function within struct declaration
