@@ -8,8 +8,6 @@ repo = "https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl"
 version = "0.3.3"
 
 [deps]
-DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
-DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
 Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
@@ -17,10 +15,10 @@ StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 
 [compat]
 Documenter = "0.19.0 - 0.27.12"
-DocumenterTools = "0.1.13"
+DocumenterTools = "0.1"
 Parameters = "0.12"
 StructArrays = "0.5, 0.6"
-julia = "1.6"
+julia = "1.7"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
