@@ -7,8 +7,6 @@ module HiddenMarkovModelReaders
 # dependencies
 using StructArrays
 using Parameters
-using DelimitedFiles
-using DataFrames
 
 ####################################################################################################
 
