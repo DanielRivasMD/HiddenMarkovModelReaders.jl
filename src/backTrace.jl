@@ -17,11 +17,11 @@ function backTrace(∫::HMM)
       vlocal = min
       global sig = -1
 
-      for ε ∈ eachindex(∫.model)
-        dob = ∫.model[ε][ι]
+      for ο ∈ eachindex(∫.model)
+        dob = ∫.model[ο][ι]
         if dob <= vlocal
           vlocal = dob
-          sig = ε
+          sig = ο
         end
       end
 
