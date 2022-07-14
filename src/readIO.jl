@@ -2,9 +2,8 @@
 
 """
 
-    reconstructHMM(path::S, filename::S, channels::V{S})
+    reconstructHMM(path::S, filename::S, channels::Vector{S})
     where S <: String
-    where V <: Vector
 
 # Description
 Reconstruct hidden markov model.
