@@ -7,7 +7,7 @@
   # declare model parameters
   params = HMMParams(
     penalty = 200,
-    distance = euclDist,
+    distance = euclideanDistance,
     minimumFrequency = 20,
     verbosity = false,
   )

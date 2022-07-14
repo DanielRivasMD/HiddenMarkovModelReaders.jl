@@ -9,7 +9,7 @@
     # declare model parameters
     params = HMMParams(
       penalty = 200,
-      distance = euclDist,
+      distance = euclideanDistance,
       minimumFrequency = 20,
       verbosity = false,
     )
@@ -67,7 +67,7 @@
     # declare model parameters
     params = HMMParams(
       penalty = 200,
-      distance = bhattDist,
+      distance = bhattacharyyaDistance,
       minimumFrequency = 20,
       verbosity = false,
     )

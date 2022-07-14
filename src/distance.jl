@@ -2,7 +2,7 @@
 
 """
 
-    euclDist(ɒ::Vector{X}, ʌ::Vector{Y})
+    euclideanDist(ɒ::Vector{X}, ʌ::Vector{Y})
     where X <: Number
     where Y <: Number
 
@@ -11,13 +11,13 @@ Euclidean distance.
 
 # Examples
 ```
-julia> euclDist(collect(1:10), fill(5, 10))
+julia> euclideanDist(collect(1:10), fill(5, 10))
 9.219544457292887
 ```
 
-See also: [`bhattDist`](@ref), [`amplitude`](@ref)
+See also: [`bhattacharyyaDist`](@ref), [`amplitude`](@ref)
 """
-function euclDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
+function euclideanDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
   return (ɒ .- ʌ) .^ 2 |> sum |> sqrt
 end
 
@@ -25,7 +25,7 @@ end
 
 """
 
-    bhattDist(ɒ::Vector{X}, ʌ::Vector{Y})
+    bhattacharyyaDist(ɒ::Vector{X}, ʌ::Vector{Y})
     where X <: Number
     where Y <: Number
 
@@ -34,13 +34,13 @@ Bhattacharyya distance.
 
 # Examples
 ```
-julia> bhattDist(collect(1:10), fill(5, 10))
+julia> bhattacharyyaDist(collect(1:10), fill(5, 10))
 -3.936532135073928
 ```
 
-See also: [`euclDist`](@ref), [`amplitude`](@ref)
+See also: [`euclideanDist`](@ref), [`amplitude`](@ref)
 """
-function bhattDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
+function bhattacharyyaDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
   return -log((ɒ .* ʌ .|> sqrt |> sum) + 1)
 end
 
@@ -61,7 +61,7 @@ julia> amplitude(collect(1:10))
 ```
 
 
-See also: [`euclDist`](@ref), [`bhattDist`](@ref)
+See also: [`euclideanDist`](@ref), [`bhattacharyyaDist`](@ref)
 """
 function amplitude(ɒ::Vector{X}) where X <: Number
   return ɒ .^ 2 |> sum |> sqrt
