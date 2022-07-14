@@ -2,10 +2,11 @@
 
 """
 
-    process!(∫::HMM, ɒ::Matrix{N}, ϟ::B;
+    process!(∫::HMM, ɒ::M, ϟ::B;
     params::HMMParams)
-    where N <: Number
-    where B <: Bool
+      where M <: Matrix{N}
+      where N <: Number
+      where B <: Bool
 
 # Description
 Process hidden Markov model object.
@@ -18,7 +19,7 @@ Meant as an iterative mutating function, perform several steps:
 
 See also: [`setup`](@ref), [`HMM`](@ref), [`HMMParams`](@ref)
 """
-function process!(∫::HMM, ɒ::Matrix{N}, ϟ::B; params::HMMParams) where N <: Number where B <: Bool
+function process!(∫::HMM, ɒ::M, ϟ::B; params::HMMParams) where M <: Matrix{N} where N <: Number where B <: Bool
 
   # reset
   reset!(∫)

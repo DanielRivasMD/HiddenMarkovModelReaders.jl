@@ -1,23 +1,24 @@
 ####################################################################################################
 
 """
-
-    euclideanDist(ɒ::Vector{X}, ʌ::Vector{Y})
-    where X <: Number
-    where Y <: Number
+    euclideanDistance(ɒ::Vx, ʌ::Vy)
+      where Vx <: Vector{Nx}
+      where Vy <: Vector{Ny}
+      where Nx <: Number
+      where Ny <: Number
 
 # Description
 Euclidean distance.
 
 # Examples
 ```
-julia> euclideanDist(collect(1:10), fill(5, 10))
+julia> euclideanDistance(collect(1:10), fill(5, 10))
 9.219544457292887
 ```
 
-See also: [`bhattacharyyaDist`](@ref), [`amplitude`](@ref)
+See also: [`bhattacharyyaDistance`](@ref), [`amplitude`](@ref)
 """
-function euclideanDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
+function euclideanDistance(ɒ::Vx, ʌ::Vy) where Vx <: Vector{Nx} where Vy <: Vector{Ny} where Nx <: Number where Ny <: Number
   return (ɒ .- ʌ) .^ 2 |> sum |> sqrt
 end
 
@@ -25,22 +26,24 @@ end
 
 """
 
-    bhattacharyyaDist(ɒ::Vector{X}, ʌ::Vector{Y})
-    where X <: Number
-    where Y <: Number
+    bhattacharyyaDistance(ɒ::Vx, ʌ::Vy)
+      where Vx <: Vector{Nx}
+      where Vy <: Vector{Ny}
+      where Nx <: Number
+      where Ny <: Number
 
 # Description
 Bhattacharyya distance.
 
 # Examples
 ```
-julia> bhattacharyyaDist(collect(1:10), fill(5, 10))
+julia> bhattacharyyaDistance(collect(1:10), fill(5, 10))
 -3.936532135073928
 ```
 
-See also: [`euclideanDist`](@ref), [`amplitude`](@ref)
+See also: [`euclideanDistance`](@ref), [`amplitude`](@ref)
 """
-function bhattacharyyaDist(ɒ::Vector{X}, ʌ::Vector{Y}) where X <: Number where Y <: Number
+function bhattacharyyaDistance(ɒ::Vx, ʌ::Vy) where Vx <: Vector{Nx} where Vy <: Vector{Ny} where Nx <: Number where Ny <: Number
   return -log((ɒ .* ʌ .|> sqrt |> sum) + 1)
 end
 
@@ -48,8 +51,9 @@ end
 
 """
 
-    amplitude(ɒ::Vector{X})
-    where X <: Number
+    amplitude(ɒ::V)
+      where V <: Vector{N}
+      where N <: Number
 
 # Description
 Amplitude.
@@ -61,9 +65,9 @@ julia> amplitude(collect(1:10))
 ```
 
 
-See also: [`euclideanDist`](@ref), [`bhattacharyyaDist`](@ref)
+See also: [`euclideanDistance`](@ref), [`bhattacharyyaDistance`](@ref)
 """
-function amplitude(ɒ::Vector{X}) where X <: Number
+function amplitude(ɒ::V) where V <: Vector{N} where N <: Number
   return ɒ .^ 2 |> sum |> sqrt
 end
 
