@@ -46,6 +46,35 @@ Julia's general user-friendliness makes this software available to people a wide
 - Updating the model by adding incoming data and calculating distance defined by the `distance` setting.
 - Finally, sorting the states of the `HMM` by overall amplitude of its feature vectors.
 
+# Example
+
+```julia
+# declare parameters and use lambda distance function
+# default values could also be used instead
+hmmParams = HMMParams(
+  penalty                    = 200,
+  minimumFrequency           = 20,
+  verbosity                  = false,
+  distance                   = x, y -> (x .- y) .^ 2
+)
+
+# declare random two-dimensional array
+x = rand(10, 5)
+
+# setup Hidden Markov model object
+hmm = setup(x)
+
+# create a dictionary to hold results
+resultsDc = Dict()
+
+# procces Hidden Markov model with state splitting option
+resultsDc[1] = process!(hmm, x, true, params = hmmParams)
+
+# procces Hidden Markov model without state splitting option
+resultsDc[2] = process!(hmm, x, false, params = hmmParams)
+```
+
+
 # Software Repository
 
 The software is available as source code from https://github.com/DanielRivasMD/HiddenMarkovModelReaders/ under the MIT license.
