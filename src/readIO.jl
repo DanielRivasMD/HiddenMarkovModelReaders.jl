@@ -44,7 +44,7 @@ end
 "read dataframe"
 function readdf(path; sep = '\t', header = true)
   ƒ, п = DelimitedFiles.readdlm(path, sep, header = header)
-  DataFrames.DataFrame(ƒ, п |> vec)
+  DataFrame(ƒ, п |> vec)
 end
 
 ####################################################################################################

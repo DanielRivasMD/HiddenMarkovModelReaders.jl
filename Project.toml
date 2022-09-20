@@ -8,6 +8,7 @@ repo = "https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl"
 version = "0.3.5"
 
 [deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
 Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"

@@ -5,6 +5,7 @@ module HiddenMarkovModelReaders
 ####################################################################################################
 
 # dependencies
+using DataFrames
 using StructArrays
 using Parameters
 
