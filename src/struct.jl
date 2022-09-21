@@ -29,9 +29,9 @@ Hidden Markov model object.
 See also: [`HMMParams`](@ref), [`setup`](@ref),
 """
 mutable struct HMM
-  data::Array
-  model::Array
-  traceback::Array
+  data::Vector{Vector{AbstractFloat}}
+  model::Vector{Vector{AbstractFloat}}
+  traceback::Vector{Integer}
 end
 
 # TODO: write a function signature verifier
