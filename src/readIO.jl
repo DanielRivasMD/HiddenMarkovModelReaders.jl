@@ -36,7 +36,7 @@ end
 
 "load hidden Markov model traceback"
 function readHMMtraceback(path::S, filename::S) where S <: String
-  return readdf(string(path, filename, "_traceback", ".csv"); sep = ',') |> π -> π[:, 1]
+  return readdf(string(path, filename, "_traceback", ".csv"); sep = ',') |> π -> π[:, 1] .|> Int
 end
 
 ####################################################################################################
