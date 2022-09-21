@@ -22,16 +22,16 @@ end
 Hidden Markov model object.
 
 # Fields
-    data::Array: hold data
-    model::Array: keep model scores
-    traceback::Array: collect traceback
+    data::Vector{Vector{AbstractFloat}}: hold data
+    model::Vector{Vector{AbstractFloat}}: keep model scores
+    traceback::Vector{Int64}: collect traceback
 
 See also: [`HMMParams`](@ref), [`setup`](@ref),
 """
 mutable struct HMM
   data::Vector{Vector{AbstractFloat}}
   model::Vector{Vector{AbstractFloat}}
-  traceback::Vector{Integer}
+  traceback::Vector{Int64}
 end
 
 # TODO: write a function signature verifier
