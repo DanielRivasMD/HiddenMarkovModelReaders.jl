@@ -5,6 +5,7 @@ module HiddenMarkovModelReaders
 ####################################################################################################
 
 # dependencies
+using CSV
 using DataFrames
 using DelimitedFiles
 using StructArrays
