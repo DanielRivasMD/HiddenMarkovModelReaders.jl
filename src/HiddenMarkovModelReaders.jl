@@ -10,6 +10,7 @@ using DataFrames
 using DelimitedFiles
 using StructArrays
 using Parameters
+using Tables
 
 ####################################################################################################
 
