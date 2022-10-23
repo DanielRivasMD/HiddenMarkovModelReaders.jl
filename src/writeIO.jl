@@ -43,7 +43,7 @@ Write hidden markov model traceback and model wrapper.
 
 See also: [`reconstructHMM`](@ref)
 """
-function writeHMM(filePrefix::S, hmmDc::D) where D <: Dict{S, HMM} where S <: String
+function writeHMM(filePrefix::S, hmmDc::DSH) where DSH <: Dict{S, HMM} where S <: String
   for (κ, υ) ∈ hmmDc
     filename = string(filePrefix, string(κ))
     writeHMM(string(filename, "_traceback", ".csv"), υ.traceback, κ)
