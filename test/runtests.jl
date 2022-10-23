@@ -18,6 +18,7 @@ tests = [
   "distance.jl",
   "setup.jl",
   "process.jl",
+  "writeIO.jl",
 
 ]
 
