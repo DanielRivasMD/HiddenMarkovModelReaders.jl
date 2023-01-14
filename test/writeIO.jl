@@ -16,8 +16,8 @@
     writeHMM("out/hmm_", toWriteDc)
 
     # testing
-    @test isfile("out/hmm_Test1_states.csv") == true
-    @test isfile("out/hmm_Test1_traceb.csv") == true
+    @test isfile("out/hmm_Test1_model.csv") == true
+    @test isfile("out/hmm_Test1_traceback.csv") == true
 
     ####################################################################################################
 
