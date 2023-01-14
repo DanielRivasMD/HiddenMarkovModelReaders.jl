@@ -31,19 +31,19 @@
     ####################################################################################################
 
     # read
-    readStates = readdlm("out/hmm_Test1_states.csv")
-    readTraceb = readdlm("out/hmm_Test1_traceb.csv")
+    readModel = readdlm("out/hmm_Test1_model.csv")
+    readTraceback = readdlm("out/hmm_Test1_traceback.csv")
 
     # paired values
-    testStates = Array{Any, 2}(undef, 4, 1)
-    testStates[:, 1] .= ["Test1"; 1; 2; 3]
+    testModel = Array{Any, 2}(undef, 4, 1)
+    testModel[:, 1] .= ["S1"; 1; 2; 3]
 
-    testTraceb = Array{Any, 2}(undef, 4, 1)
-    testTraceb[:, 1] .= ["S1"; 1.; 2.; 3.]
+    testTraceback = Array{Any, 2}(undef, 4, 1)
+    testTraceback[:, 1] .= ["Test1"; 1.; 2.; 3.]
 
     # testing
-    @test readStates == testStates
-    @test readTraceb == testTraceb
+    @test readModel == testModel
+    @test readTraceback == testTraceback
 
     ####################################################################################################
 
