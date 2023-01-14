@@ -10,8 +10,7 @@
     ####################################################################################################
 
     # empty dict
-    # FIX: incompatible test
-    toWriteDc = Dict{String, Tuple{Array{Int64, 1}, Array{Array{Float64, 1}, 1}}}("Test1" => ([1, 2, 3], [[1., 2., 3.]]))
+    toWriteDc = Dict{String, HMM}("Test1" => HMM(Array{AbstractFloat}(undef, 0), [[1., 2., 3.]], [1, 2, 3]))
 
     # write
     writeHMM("out/hmm_", toWriteDc)
