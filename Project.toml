@@ -5,7 +5,7 @@ license = "MIT"
 desc = " Hidden Markov model and unsupervised hypothesis generator for signal processing and anomaly detection."
 authors = ["Daniel Rivas <danielrivasmd@gmail.com> and Manfred Grabherr <manfredgrabherr@gmail.com>"]
 repo = "https://github.com/DanielRivasMD/HiddenMarkovModelReaders.jl"
-version = "0.4.3"
+version = "0.4.4"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
