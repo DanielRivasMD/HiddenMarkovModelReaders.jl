@@ -15,11 +15,18 @@ See also: [`reconstructHMM`](@ref)
 """
 function writeHMM(hmmDc::DSH, shParams::DSA) where DSH <: Dict{S, HMM} where DSA <: Dict{S, Any} where S <: String
 
+  # check for args
   if haskey(shParams, "outDir") && haskey(shParams, "input")
+
+    # check for existing path
+    outPath = string(shParams["outDir"], "hmm/")
+    if !isdir(outPath)
+      mkpath(outPath)
+    end
+
     return writeHMM(
       string(
-        shParams["outDir"],
-        "hmm/",
+        outPath,
         replace(shParams["input"], ".edf" => "_")
       ),
       hmmDc,
